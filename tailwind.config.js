@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['"Share Tech Mono"', 'monospace'],
+        'mono': ['Share Tech Mono', 'monospace'],
+        'akiraexpanded': ['Akira Expanded', 'sans-serif'],
       },
     },
   },
