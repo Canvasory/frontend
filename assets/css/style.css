@@ -744,8 +744,51 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 1px;
 }
 
+<<<<<<< HEAD
+=======
+.border-\[2px\] {
+  border-width: 2px;
+}
+
+.border-\[1\.5px\] {
+  border-width: 1.5px;
+}
+
+.border-y-\[1px\] {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.border-x-\[1px\] {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.border-x-\[2px\] {
+  border-left-width: 2px;
+  border-right-width: 2px;
+}
+
+.border-x-\[1\.5px\] {
+  border-left-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+>>>>>>> 4aa76de (WIP: perubahan sementara sebelum rebase)
 .border-b-\[1px\] {
   border-bottom-width: 1px;
+}
+
+.border-b-\[2px\] {
+  border-bottom-width: 2px;
+}
+
+.border-b-\[1\.5px\] {
+  border-bottom-width: 1.5px;
 }
 
 .border-black {
