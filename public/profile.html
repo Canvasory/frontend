@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvasory - Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet" />
+
+</head>
+<body class="bg-gray-100 font-mono">
+
+  <!-- Header -->
+  <header class="bg-gray-300 py-3 px-6 flex justify-between items-center border-b border-black">
+    <h1 class="text-xl font-bold">© Canvasory</h1>
+    <div class="text-black font-bold flex items-center">
+    <a href="index.html">back</a>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-1/5 bg-[#10A19D] text-white text-center p-6 space-y-6">
+      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">USER INFO</a></div>
+      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">HISTORY</a></div>
+      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">LOG OUT</a></div>
+    </aside>
+
+    <!-- Profile Section -->
+    <main class="flex-1 bg-[#FFBF00] px-10 py-4">
+      <h2 class="font-sans text-5xl font-black mb-6 scale-y-[0.70]">USER PROFILE</h2>
+
+        <!-- Avatar -->
+        <div class="flex flex-row flex-wrap">
+          <img src="../assets/images/profile.png" alt="avatar" class="w-28 h-28 rounded-full bg-gray-300" />
+          <div class="flex flex-col">
+            <h3 class="text-2xl font-bold pl-5 pt-4">Hello <span id="greetUsername">User</span></h3>
+            <p class="pl-5">have a good day!</p>
+          </div>
+        </div>
+
+      <!-- Info Container -->
+      <div class="flex items-start gap-8 pt-4">
+        <!-- Form Fields -->
+        <form class="flex flex-col flex-wrap gap-6 w-full max-w-3xl">
+          <div class="flex gap-8">
+            <div class="flex flex-col w-1/2">
+              <label class="font-semibold text-sm mb-1">Name</label>
+              <input id="inputUsername" type="text" placeholder="fill your name" class="bg-yellow-300 border border-black px-3 py-1 rounded text-black">
+            </div>
+            <div class="flex flex-col w-1/2">
+              <label class="font-semibold text-sm mb-1">Phone Number</label>
+              <input id="inputPhone" type="text" placeholder="62/08" class="bg-yellow-300 border border-black px-3 py-1 rounded text-black">
+            </div>
+          </div>
+
+          <div class="flex gap-8">
+            <div class="flex flex-col w-1/2">
+              <label class="font-semibold text-sm mb-1">Email Address</label>
+              <input type="email" id="inputEmail" placeholder="ex@gmail.com" class="bg-yellow-300 border border-black px-3 py-1 rounded text-black">
+            </div>
+            <div class="flex flex-col w-1/2">
+              <label class="font-semibold text-sm mb-1">Location</label>
+              <input id="inputLocation" type="text" placeholder="your location" class="bg-yellow-300 border border-black px-3 py-1 rounded text-black">
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-end">
+            <button type="submit" class="bg-red-600 border border-black text-white px-10 py-1.5 rounded-lg hover:bg-red-700">Save</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+<footer class="bg-[#540375] text-white px-8 py-6">
+  <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 w-full">
+    <!-- Left: Logo + Canvasory + Deskripsi -->
+    <div class="flex flex-col items-start">
+      <div class="flex items-center gap-2">
+        <img src="/assets/images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-lg font-bold tracking-wide">Canvasory</h1>
+      </div>
+      <p class="text-sm mt-2 text-gray-200 leading-relaxed">
+        Your design begins with us.<br>
+        We shape your vision into reality.<br>
+        Together, we bring ideas to life.
+      </p>
+    </div>
+
+    <!-- Right: Support + Icons -->
+    <div class="flex items-center justify-center gap-4 m-5">
+      <!-- Teks Support dibungkus dengan <a> agar bisa diklik -->
+      <a href="#" class="text-white text-xl mb-2 hover:opacity-80 transition">Support</a>
+
+      <!-- Ikon-ikon -->
+      <div class="flex gap-4">
+        <a href="#" aria-label="Email">
+          <img src="/assets/images/mail.png" alt="Email" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <img src="/assets/images/whatsapp.png" alt="WhatsApp" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="/assets/images/instagram.png" alt="Instagram" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+<!-- Footer -->
+
+<script src="../src/js/profile.js"></script>
+
+</body>
+</html>

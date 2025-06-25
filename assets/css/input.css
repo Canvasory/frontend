@@ -1,3 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* style.css */
+.text-outline {
+  -webkit-text-stroke: 4px #FF7000;
+}
