@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Canvasory</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvasory</title>
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    .font-akira { font-family: 'Share Tech Mono', monospace; }
+    </style>
 </head>
 <body>
         <header class="bg-gray-300 border-2 border-black">
@@ -33,20 +36,34 @@
         </div>
     </header>
 
-        <!-- Main Section -->
+    <!-- Main Section -->
     <section class="flex flex-col md:flex-row w-full h-full">
 
-        <!-- Left Side -->
-        <div class="bg-[#009999] md:w-1/3 w-full p-6 flex flex-col gap-6">
-        <div>
-            <h1 class="text-4xl font-black leading-tight font-akira text-black">DISCOVER<br><span class="text-yellow-400">YOUR STYLE</span></h1>
-            <p class="text-white mt-2 text-sm font-mono">Choose your personality in this page</p>
+    <!-- Left Side -->
+    <div class="bg-[#009999] md:w-1/3 w-full p-6 flex flex-col gap-6">
+
+    <!-- Title and Subtitle -->
+    <div class="px-6">
+        <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight text-black">
+        DISCOVER <br>
+        <span class="text-yellow-400">YOUR <span class= "text-yellow-400 px-1">STYLE</span></span>
+        </h1>
+        <p class="text-white text-lg font-mono mt-2">Choose your personality<br>in this page</p>
+    </div>
+
+    <!-- Images Section -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-6 px-6">
+        <!-- Left Image -->
+        <div class="bg-white rounded-xl p-1">
+        <img src="../assets/images/Discover1.jpg" alt="Art Day" class="rounded-lg w-[250px] h-auto" />
         </div>
-        <div class="flex flex-col gap-4">
-            <img src="../assets/images/Discover1.jpg" class="rounded-md border border-black" />
-            <img src="../assets/images/Discover2.jpg" class="rounded-md border border-black bg-[#f8f4e1]" />
+
+        <!-- Right Image -->
+        <div class="bg-[#F5EEDA] rounded-xl p-2">
+        <img src="../assets/images/Discover2.jpg" alt="Collage Bird" class="rounded-lg w-[250px] h-auto" />
         </div>
-        </div>
+    </div>
+            </div>
 
         <!-- Right Side -->
         <div class="bg-[#FFBF00] md:w-2/3 w-full p-6 space-y-6 overflow-y-auto">
