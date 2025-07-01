@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvasory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet" />
+
+</head>
+<body class="font-mono">
+
+<!-- Navbar Section -->
+   <header class="bg-gray-300 border-2 border-black">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 w-full">
+
+      <!-- Kiri: Logo dan Menu -->
+      <div class="flex items-center space-x-6 p-5">
+        <h1 class="text-2xl font-bold">WebDesignerLogo</h1>
+        <nav class="space-x-4">
+          <a href="index.html" class="no-underline text-black hover:font-bold">Home</a>
+          <a href="catalog.html" class="no-underline text-black hover:font-bold">Catalog</a>
+          <a href="desginer.html" class="no-underline text-black hover:font-bold">Designer</a>
+          <a href="aboutus.html" class="no-underline text-black hover:font-bold">About Us</a>
+        </nav>
+      </div>
+      
+      <!-- Kanan: Login & Signup -->
+      <div class="flex divide-x divide-black">
+        <a href="#" id="loginBtn" class="px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold">
+          <img class="w-[25px] h-[25px] mr-2" src="/assets/images/profile.png" alt="profile">
+          Login
+        </a>
+        <a href="#" id="signupBtn" class="px-6 py-[26px] no-underline text-black text-center flex items-center hover:bg-gray-400">Sign Up</a>
+      </div>
+
+    </div>
+  </header>
+<!-- Navbar Section -->
+
+<!-- Hero -->
+<section class="relative w-full h-[400px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-center font-sans" style="background-image: url('../assets/images/bg_designer_banner.jpg');">
+  
+  <!-- Overlay Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-[#540375]/80 z-0"></div>
+  
+  <!-- Title -->
+  <div class="relative z-10 text-white">
+    <h2 class="text-7xl font-black tracking-wider scale-y-[0.85] drop-shadow-md">MEET OUR</h2>
+    <h3 class="text-5xl font-extrabold text-[#FFBF00] scale-y-[0.85] drop-shadow-lg">DESIGNERS</h3>
+  </div>
+</section>
+
+<!-- Designer List -->
+<section class="px-8 py-[8rem] bg-gray-100">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Designer Card -->
+    <div class="relative group bg-white border-2 border-black p-6 pt-12 rounded-xl shadow-[6px_6px_0_black] transform transition-transform hover:-translate-y-2 hover:shadow-[10px_10px_0_black]">
+
+    <!-- Avatar Floating -->
+    <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
+        <img src="../assets/images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
+    </div>
+
+    <!-- Info -->
+    <div class="text-center mt-2">
+        <h4 class="text-xl font-bold mt-3">Haitsam Muftin S</h4>
+        <p class="text-sm text-gray-500">Vector & Logo Specialist</p>
+        <p class="text-sm mt-3 text-gray-700">
+        Membawa sentuhan modern dengan detail minimalis dan karakter kuat.
+        </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-4 flex justify-center gap-3">
+        <a href="https://wa.me/6281234567890" target="_blank" class="text-white bg-purple-900 px-4 py-1 rounded hover:bg-purple-800 text-sm transition">
+        Contact
+        </a>
+        <a href="portofolio-haitsam.html" class="text-purple-900 border border-purple-900 px-4 py-1 rounded hover:bg-purple-900 hover:text-white text-sm transition">
+        Portofolio
+        </a>
+    </div>
+
+    <!-- Bottom Border Accent -->
+    <div class="absolute bottom-0 left-0 right-0 h-2 bg-[#FFBF00] rounded-b-xl"></div>
+    </div>
+
+    <!-- Designer Card -->
+    <div class="relative group bg-white border-2 border-black p-6 pt-12 rounded-xl shadow-[6px_6px_0_black] transform transition-transform hover:-translate-y-2 hover:shadow-[10px_10px_0_black]">
+
+    <!-- Avatar Floating -->
+    <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
+        <img src="../assets/images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
+    </div>
+
+    <!-- Info -->
+    <div class="text-center mt-2">
+        <h4 class="text-xl font-bold mt-3">Nurrochim Amin P</h4>
+        <p class="text-sm text-gray-500">Brand Identity & Typography</p>
+        <p class="text-sm mt-3 text-gray-700">
+        Menggabungkan gaya bold dengan keahlian typografi dan warna tajam.
+        </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-4 flex justify-center gap-3">
+        <a href="https://wa.me/6281234567890" target="_blank" class="text-white bg-purple-900 px-4 py-1 rounded hover:bg-purple-800 text-sm transition">
+        Contact
+        </a>
+        <a href="portofolio-haitsam.html" class="text-purple-900 border border-purple-900 px-4 py-1 rounded hover:bg-purple-900 hover:text-white text-sm transition">
+        Portofolio
+        </a>
+    </div>
+
+    <!-- Bottom Border Accent -->
+    <div class="absolute bottom-0 left-0 right-0 h-2 bg-[#FFBF00] rounded-b-xl"></div>
+    </div>
+
+    <!-- Tambah designer lain sesuai kebutuhan -->
+    
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#540375] text-white px-8 py-6">
+  <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 w-full">
+    <!-- Left: Logo + Canvasory + Deskripsi -->
+    <div class="flex flex-col items-start">
+      <div class="flex items-center gap-2">
+        <img src="/assets/images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-lg font-bold tracking-wide">Canvasory</h1>
+      </div>
+      <p class="text-sm mt-2 text-gray-200 leading-relaxed">
+        Your design begins with us.<br>
+        We shape your vision into reality.<br>
+        Together, we bring ideas to life.
+      </p>
+    </div>
+
+    <!-- Right: Support + Icons -->
+    <div class="flex items-center justify-center gap-4 m-5">
+      <!-- Teks Support dibungkus dengan <a> agar bisa diklik -->
+      <a href="#" class="text-white text-xl mb-2 hover:opacity-80 transition">Support</a>
+
+      <!-- Ikon-ikon -->
+      <div class="flex gap-4">
+        <a href="#" aria-label="Email">
+          <img src="/assets/images/mail.png" alt="Email" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <img src="/assets/images/whatsapp.png" alt="WhatsApp" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="/assets/images/instagram.png" alt="Instagram" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

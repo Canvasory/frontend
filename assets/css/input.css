@@ -6,3 +6,10 @@
 .text-outline {
   -webkit-text-stroke: 4px #FF7000;
 }
+
+.bg-custom {
+  background-image: url('../images/bg_homepage1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

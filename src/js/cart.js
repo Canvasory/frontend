@@ -43,12 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartBtn = document.getElementById("cartBtn");
   const cartCount = document.getElementById("cartCount");
 
-  if (user && token) {
-    if (cartBtn) {
-      cartBtn.classList.remove("hidden");
-      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-      cartCount.textContent = cartItems.length;
-    }
+  // Debugging
+  console.log("CART.js loaded: user = ", user, "token =", token);
+
+  if (user && token && cartBtn && cartCount) {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    cartCount.textContent = cartItems.length;
+    if (cartItems.length > 0) cartCount.classList.remove("hidden");
+    cartBtn.classList.remove("hidden");
   }
 
   // ===== Page Cart Logic =====
@@ -87,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     totalPriceEl.textContent = `IDR ${total}K`;
-    waLink.href = `https://wa.me/6281234567890?text=${encodeURIComponent(waMessage + "\nTotal: IDR " + total + "K")}`;
+    waLink.href = `https://wa.me/628598729911?text=${encodeURIComponent(waMessage + "\nTotal: IDR " + total + "K")}`;
   }
 });
 

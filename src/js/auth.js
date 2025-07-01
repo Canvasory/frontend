@@ -15,7 +15,10 @@ signupBtn?.addEventListener('click', (e) => {
 });
 
 function closeModal(id) {
-  document.getElementById(id).classList.add('hidden');
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.add('hidden');
+  }
 }
 
 // LOGIN 
@@ -70,7 +73,7 @@ if (loginBtn) {
     // Buat elemen <a> baru
     const profileLink = document.createElement('a');
     profileLink.href = '../public/profile.html';
-    profileLink.className = 'flex items-center no-underline text-black hover:font-bold pr-5 gap-2';
+    profileLink.className = 'flex items-center no-underline text-black hover:font-bold px-4 gap-2';
     profileLink.innerHTML = `
       <img src="/assets/images/profile.png" alt="avatar" class="w-5 h-5 rounded-full" />
       <span>${currentUser.username || 'User'}</span>
