@@ -713,6 +713,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 24px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -739,6 +743,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-8 {
   width: 2rem;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-\[28px\] {
@@ -1137,6 +1145,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#F5EEDA\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 238 218 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1288,6 +1301,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.375rem;
 }
 
+<<<<<<< HEAD
 .py-\[5rem\] {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -1301,6 +1315,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+=======
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+>>>>>>> 0a194f28d01e560f818ae92d8a41e1634947eaed
 }
 
 .pt-4 {
@@ -1712,6 +1731,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
