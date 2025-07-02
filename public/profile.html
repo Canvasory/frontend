@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvasory - Profile</title>
+  <title>Collexta - Profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet" />
 
@@ -23,13 +23,17 @@
 
     <!-- Sidebar -->
     <aside class="w-1/5 bg-[#10A19D] text-white text-center p-6 space-y-6">
-      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">USER INFO</a></div>
-      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">HISTORY</a></div>
-      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]"><a href="#" class="hover:text-black">LOG OUT</a></div>
+      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]">
+        <button id="viewProfile" class="font-bold hover:text-black active-tab">USER INFO</button>
+      </div>
+      <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]">
+        <button id="viewHistory" class="font-bold hover:text-black">HISTORY</button>
+      </div>
+      <button id="btnLogout" class="font-sans text-xl tracking-wide font-black scale-y-[0.75] hover:text-black">LOG OUT</button>
     </aside>
 
     <!-- Profile Section -->
-    <main class="flex-1 bg-[#FFBF00] px-10 py-4">
+    <main class="flex-1 bg-[#FFBF00] px-10 py-4" id="profileSection">
       <h2 class="font-sans text-5xl font-black mb-6 scale-y-[0.70]">USER PROFILE</h2>
 
         <!-- Avatar -->
@@ -73,6 +77,13 @@
         </form>
       </div>
     </main>
+
+    <!-- History Section -->
+    <main class="flex-1 bg-[#FFBF00] px-10 py-4 hidden" id="historySection">
+      <h2 class="font-sans text-5xl font-black mb-6 scale-y-[0.70]">ORDER HISTORY</h2>
+      <div id="orderList" class="space-y-4"></div>
+    </main>
+
   </div>
 
   <!-- Footer -->

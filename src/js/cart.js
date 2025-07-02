@@ -100,3 +100,46 @@ function removeItem(index) {
   localStorage.setItem("cart", JSON.stringify(cartData));
   location.reload();
 }
+
+document.getElementById("checkoutBtn")?.addEventListener("click", async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (!user || !token) {
+    alert("Harap login untuk checkout.");
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  const res = await fetch("http://localhost:8090/api/collections/orders/records", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      userId: user.id,
+      items: cart,
+      total: total,
+      status: "pending"
+    })
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    alert("Checkout berhasil! Silakan transfer ke rekening BCA 123456 a.n. Canvasory");
+    localStorage.removeItem("cart");
+    location.href = "profile.html"; // Atau ke halaman instruksi
+  } else {
+    alert("Checkout gagal.");
+    console.error(data);
+  }
+});
+

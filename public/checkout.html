@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collexta - Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet" />
+</head>
+<body class="font-mono bg-gray-50 text-black px-6 py-8">
+    <a href="cart.html"><img src="../assets/images/left_arrow.png" alt="arrow_back" class="h-10 w-10 mb-5"></a>
+    <h1 class="text-2xl font-bold mb-6">Checkout</h1>
+    <form id="checkoutForm" class="space-y-4 max-w-md mx-auto mt-8">
+        <input type="text" id="fullName" placeholder="Full Name" required class="w-full border p-2" />
+        <input type="email" id="email" placeholder="Email" required class="w-full border p-2" />
+        <textarea id="note" placeholder="Note (optional)" class="w-full border p-2"></textarea>
+        <!-- Upload Bukti Transfer -->
+        <input type="file" id="buktiTransfer" accept="image/*" required class="w-full border p-2" />
+
+        <button type="submit" class="bg-purple-900 text-white px-4 py-2 rounded hover:bg-purple-800 w-full">Checkout</button>
+    </form>
+
+  <script src="../src/js/checkout.js"></script>
+</body>
+</html>

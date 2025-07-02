@@ -13,3 +13,10 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.active-tab {
+  background-color: white;
+  color: #10A19D;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+}
