@@ -1,110 +1,142 @@
-// Buka Modal
+const API_URL = 'http://localhost:8090';
+
+// Ambil elemen utama
 const loginBtn = document.getElementById('loginBtn');
 const signupBtn = document.getElementById('signupBtn');
+const cartCount = document.getElementById('cartCount');
+const cartData = JSON.parse(localStorage.getItem("cart") || "[]");
+
 const currentUser = JSON.parse(localStorage.getItem('user'));
 const token = localStorage.getItem("token");
 
+// ==== Modal Login ====
 loginBtn?.addEventListener('click', (e) => {
   e.preventDefault();
-  document.getElementById('loginModal').classList.remove('hidden');
+  document.getElementById('loginModal')?.classList.remove('hidden');
 });
 
+// ==== Modal Signup ====
 signupBtn?.addEventListener('click', (e) => {
   e.preventDefault();
-  document.getElementById('signupModal').classList.remove('hidden');
+  document.getElementById('signupModal')?.classList.remove('hidden');
 });
 
+// ==== Tutup Modal ====
 function closeModal(id) {
-  const modal = document.getElementById(id);
-  if (modal) {
-    modal.classList.add('hidden');
-  }
+  document.getElementById(id)?.classList.add('hidden');
 }
 
-// LOGIN 
+// ==== LOGIN ====
 document.getElementById('loginForm')?.addEventListener('submit', async e => {
   e.preventDefault();
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
 
-  const res = await fetch('http://localhost:8090/api/collections/users/auth-with-password', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({identity: email, password: password})
-  });
+  try {
+    const res = await fetch(`${API_URL}/api/collections/users/auth-with-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identity: email, password })
+    });
 
-  const data = await res.json();
-  if (res.ok) {
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('user', JSON.stringify(data.record));
-    alert("Login berhasil!");
-    closeModal('loginModal');
-    location.reload(); // atau redirect ke halaman dashboard
-  } else {
-    alert("Login gagal: " + (data.message || 'Cek email & password.'));
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.record));
+      alert("Login berhasil!");
+      closeModal('loginModal');
+
+      const role = data.record.role;
+      if (role === 'designer') {
+        window.location.href = '/public/portofolio.html';
+      } else if (role === 'admin') {
+        window.location.href = '/public/admin-dashboard.html';
+      } else {
+        location.reload();
+      }
+    } else {
+      alert("Login gagal: " + (data.message || 'Cek email & password.'));
+    }
+  } catch (err) {
+    console.error("Login Error:", err);
+    alert("Terjadi kesalahan saat login.");
   }
 });
 
-// SIGNUP 
+// ==== SIGNUP ====
 document.getElementById('signupForm')?.addEventListener('submit', async e => {
   e.preventDefault();
   const email = document.getElementById('signupEmail').value;
   const password = document.getElementById('signupPassword').value;
 
-  const res = await fetch('http://localhost:8090/api/collections/users/records', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({email, password, passwordConfirm: password})
+  try {
+    const res = await fetch(`${API_URL}/api/collections/users/records`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        password,
+        passwordConfirm: password,
+        role: 'user',
+        emailVisibility: true
+      })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("Akun berhasil dibuat! Silakan login.");
+      closeModal('signupModal');
+    } else {
+      alert("Signup gagal: " + (data.message || 'Periksa email/password.'));
+    }
+  } catch (err) {
+    console.error("Signup Error:", err);
+    alert("Terjadi kesalahan saat signup.");
+  }
+});
+
+// ==== DOM Loaded ====
+document.addEventListener("DOMContentLoaded", async () => {
+  console.log("Current role:", currentUser?.role);
+  // ==== LOGOUT ====
+  document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    const confirmLogout = confirm("Yakin ingin logout?");
+    if (confirmLogout) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/public/index.html';
+    }
   });
 
-  const data = await res.json();
-  if (res.ok) {
-    alert("Akun berhasil dibuat! Silakan login.");
-    closeModal('signupModal');
-  } else {
-    alert("Signup gagal: " + (data.message || 'Periksa email/password.'));
-    console.log("Signup error response:", data);
-  }
-});
-
-// Tampilan setelah login
-if (loginBtn) {
+  // ==== Tampilkan nama dan tombol sesuai role ====
   if (currentUser && token) {
-    // Buat elemen <a> baru
+    const displayName = currentUser.full_name || currentUser.username || 'User';
+
+    // Buat link profil
     const profileLink = document.createElement('a');
-    profileLink.href = '../public/profile.html';
-    profileLink.className = 'flex items-center no-underline text-black hover:font-bold px-4 gap-2';
+    profileLink.className = 'px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold';
     profileLink.innerHTML = `
-      <img src="/assets/images/profile.png" alt="avatar" class="w-5 h-5 rounded-full" />
-      <span>${currentUser.username || 'User'}</span>
+      <img class="w-[25px] h-[25px] mr-2" src="/assets/images/profile.png" alt="profile">
+      ${displayName}
     `;
-    
-    // Ganti elemen loginBtn dengan <a>
-    loginBtn.replaceWith(profileLink);
-  } else {
-    // Belum login → buka modal saat diklik
-    loginBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('loginModal')?.classList.remove('hidden');
-    });
-  }
-}
 
-// Sign Up jadi Logout
-if (signupBtn) {
-  if (currentUser && token) {
-    signupBtn.innerText = 'Logout';
-    signupBtn.addEventListener('click', () => {
-      localStorage.clear();
-      location.reload();
-    });
-  }
-}
+    // Arahkan ke halaman sesuai role
+    if (currentUser.role === 'designer') {
+      profileLink.href = '/public/portofolio.html';
+    } else if (currentUser.role === 'admin') {
+      profileLink.href = '/public/admin-dashboard.html';
+    } else {
+      profileLink.href = '/public/profile.html';
+    }
 
-// Endpoint
-fetch("http://localhost:8090/api/collections/orders/records", {
-  method: "GET",
-  headers: {
-    Authorization: `Bearer ${token}`
+    loginBtn?.replaceWith(profileLink);
+    signupBtn?.classList.add('hidden');
   }
 });
+
+// Opsional: ping koneksi (validasi token aktif)
+if (token) {
+  fetch(`${API_URL}/api/collections/users/records`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+}

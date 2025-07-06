@@ -12,7 +12,7 @@
 
   <!-- Header -->
   <header class="bg-gray-300 py-3 px-6 flex justify-between items-center border-b border-black">
-    <h1 class="text-xl font-bold">© Canvasory</h1>
+    <h1 class="text-xl font-bold">© Collexta</h1>
     <div class="text-black font-bold flex items-center">
     <a href="index.html">back</a>
     </div>
@@ -29,7 +29,7 @@
       <div class="font-sans text-xl tracking-wide font-black scale-y-[0.75]">
         <button id="viewHistory" class="font-bold hover:text-black">HISTORY</button>
       </div>
-      <button id="btnLogout" class="font-sans text-xl tracking-wide font-black scale-y-[0.75] hover:text-black">LOG OUT</button>
+      <button id="logoutBtn" class="font-sans text-xl tracking-wide font-black scale-y-[0.75] hover:text-black">LOG OUT</button>
     </aside>
 
     <!-- Profile Section -->
@@ -93,7 +93,7 @@
     <div class="flex flex-col items-start">
       <div class="flex items-center gap-2">
         <img src="/assets/images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
-        <h1 class="text-lg font-bold tracking-wide">Canvasory</h1>
+        <h1 class="text-lg font-bold tracking-wide">Collexta</h1>
       </div>
       <p class="text-sm mt-2 text-gray-200 leading-relaxed">
         Your design begins with us.<br>
@@ -125,6 +125,32 @@
 </footer>
 <!-- Footer -->
 
+<!-- Modal Review -->
+<div id="modalReview" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white p-6 rounded shadow-md max-w-md w-full space-y-4">
+    <h2 class="text-xl font-bold">Beri Ulasan</h2>
+    <form id="formReview" class="space-y-3">
+      <input type="hidden" id="reviewOrderId" />
+      <label for="rating" class="block text-sm font-semibold">Rating</label>
+      <select id="rating" class="w-full border p-2 rounded" required>
+        <option value="">Pilih rating</option>
+        <option value="5">★★★★★ (5)</option>
+        <option value="4">★★★★☆ (4)</option>
+        <option value="3">★★★☆☆ (3)</option>
+        <option value="2">★★☆☆☆ (2)</option>
+        <option value="1">★☆☆☆☆ (1)</option>
+      </select>
+
+      <textarea id="comment" rows="3" placeholder="Tulis ulasan..." class="w-full border p-2 rounded"></textarea>
+      <div class="flex justify-end gap-2">
+        <button type="button" id="cancelReview" class="bg-gray-400 text-white px-4 py-1 rounded">Batal</button>
+        <button type="submit" class="bg-purple-700 text-white px-4 py-1 rounded hover:bg-purple-800">Kirim</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../src/js/auth.js"></script>
 <script src="../src/js/profile.js"></script>
 
 </body>

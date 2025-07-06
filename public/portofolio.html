@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Designer | Collexta</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="font-mono bg-gray-100">
+
+  <!-- Header Background -->
+  <div class="relative">
+    <div class="h-[200px] w-full bg-cover bg-center" style="background-image: url('/assets/images/bg-designer1.jpg');"></div>
+    <div class="absolute top-4 right-4 flex gap-2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20">
+      <a href="/public/catalog.html" class="bg-white text-black px-4 py-1.5 rounded hover:bg-gray-200 text-sm font-semibold transition">Lihat Catalog</a>
+      <button id="logoutBtn" class="bg-red-600 text-white px-4 py-1.5 rounded hover:bg-red-700 text-sm font-semibold transition">Logout</button>
+    </div>
+
+    <!-- Profil Card -->
+    <div class="-mt-[7rem] mx-auto bg-white/80 backdrop-blur-sm shadow-lg rounded-xl w-full max-w-4xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6">
+      <img src="/assets/images/profile.png" class="w-32 h-32 rounded-full border-4 border-white object-cover" id="designerAvatar" alt="Avatar">
+      <div class="md:col-span-2 mt-16 md:mt-0 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>   
+            <h2 id="designerName" class="text-2xl font-bold">Nama Designer</h2>
+            <p id="designerRole" class="text-sm text-gray-600 mb-2">Product Designer</p>
+          </div>   
+          <div>
+            <p class="mt-2 text-sm text-gray-700" id="designerBio">Bio desainer akan muncul di sini.</p>
+          </div>  
+        </div>
+
+        <div class="flex items-center gap-2 mb-4 mt-2">
+          <span class="text-lg font-bold">Rating:</span>
+          <span id="designerRating" class="text-blue-600 font-bold">8.6</span>
+          <div class="text-yellow-500 text-lg">★★★★★</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p><strong>Email:</strong> <span id="designerEmail">-</span></p>
+            <p><strong>Website:</strong> <a id="designerWebsite" class="text-blue-700 hover:underline" target="_blank">-</a></p>
+          </div>
+          <div>
+            <p><strong>Lokasi:</strong> <span id="designerLocation">-</span></p>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi (Hanya jika designer yang sedang login) -->
+        <div id="actionButtons" class="hidden mt-4 flex gap-2">
+          <button id="editProfileBtn" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Edit Biodata</button>
+          <button id="addDesignBtn" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">+ Tambah Karya</button>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+  <!-- Spacer -->
+  <div class="h-10"></div>
+
+  <!-- Daftar Karya -->
+  <section class="mx-auto max-w-5xl p-6 bg-white rounded shadow border border-black">
+    <h3 class="text-xl font-bold mb-4">Karya Terbaru</h3>
+    <div id="designList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Karya akan diisi dari JS -->
+    </div>
+  </section>
+
+  <!-- Modal Edit Profil -->
+  <div id="modalProfile" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-lg space-y-4">
+      <h2 class="text-xl font-bold mb-4">Edit Profil</h2>
+      <form id="formProfile" class="space-y-4">
+        <input type="text" id="editUsername" placeholder="Username" class="w-full border px-3 py-2" required />
+        <textarea id="editBio" placeholder="Bio" class="w-full border px-3 py-2" rows="2"></textarea>
+        <input type="text" id="editLocation" placeholder="Lokasi" class="w-full border px-3 py-2" />
+        <input type="text" id="editWebsite" placeholder="Website" class="w-full border px-3 py-2" />
+        <div class="flex justify-end gap-2">
+          <button type="button" id="cancelProfile" class="bg-gray-400 text-white px-4 py-2 rounded">Batal</button>
+          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Tambah/Edit Karya -->
+  <div id="modalDesign" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-lg space-y-4">
+        <h2 id="modalTitle" class="text-xl font-bold mb-2">Tambah Karya</h2>
+        <form id="formDesign" class="space-y-4">
+          <input type="hidden" id="designId" />
+          <input type="text" id="designTitle" placeholder="Judul Karya" required class="w-full border px-3 py-2" />
+          <input type="number" id="designPrice" placeholder="Harga (dalam ribuan)" required class="w-full border px-3 py-2" />
+          <select id="designCategory" class="w-full border px-3 py-2">
+              <option value="">-- Pilih Kategori --</option>
+              <option value="Vector">Vector</option>
+              <option value="Bitmap">Bitmap</option>
+              <option value="Abstract Design">Abstract Design</option>
+              <option value="Street Art">Street Art</option>
+          </select>
+          <input type="file" id="designImage" accept="image/*" class="w-full" />
+          <div class="flex justify-end gap-2">
+            <button type="button" id="cancelDesign" class="px-4 py-2 bg-gray-400 text-white rounded">Batal</button>
+            <button type="submit" class="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  <script src="/src/js/auth.js"></script>
+  <script src="/src/js/portofolio.js"></script>
+</body>
+</html>

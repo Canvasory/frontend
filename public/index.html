@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Canvasory</title>
+  <title>Collexta</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet" />
 
@@ -16,7 +16,7 @@
 
       <!-- Kiri: Logo dan Menu -->
       <div class="flex items-center space-x-6 p-5">
-        <h1 class="text-2xl font-bold">WebDesignerLogo</h1>
+        <h1 class="text-2xl font-bold">Collexta</h1>
         <nav class="space-x-4">
             <a href="index.html" class="no-underline text-black hover:font-bold">Home</a>
             <a href="catalog.html" class="no-underline text-black hover:font-bold">Catalog</a>
@@ -27,10 +27,6 @@
       
       <!-- Kanan: Login & Signup -->
       <div class="flex divide-x divide-black">
-        <a href="cart.html" id="cartBtn" class="hidden px-4 py-[26px] text-black text-center flex items-center hover:font-bold cursor-pointer">
-          <img class="w-[25px] h-[25px] mr-2" src="/assets/images/cart.png" alt="cart">
-          Cart (<span id="cartCount">0</span>)
-        </a>
         <a href="#" id="loginBtn" class="px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold">
           <img class="w-[25px] h-[25px] mr-2" src="/assets/images/profile.png" alt="profile">
           Login
@@ -268,7 +264,7 @@
     <div class="flex flex-col items-start">
       <div class="flex items-center gap-2">
         <img src="/assets/images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
-        <h1 class="text-lg font-bold tracking-wide">Canvasory</h1>
+        <h1 class="text-lg font-bold tracking-wide">Collexta</h1>
       </div>
       <p class="text-sm mt-2 text-gray-200 leading-relaxed">
         Your design begins with us.<br>
@@ -331,7 +327,7 @@
 <!-- Product Modal -->
 <div id="productModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
   <div class="bg-white w-[90%] max-w-md p-6 rounded-lg shadow-lg border-2 border-black text-center">
-    <img id="modalImage" class="w-full h-48 object-cover mb-4 border border-black" />
+    <img id="modalImage" class="w-full h-48 object-contain mb-4 border border-black" />
     <h3 id="modalTitle" class="text-xl font-bold mb-2"></h3>
     <p id="modalDesigner" class="text-sm text-gray-600 mb-1"></p>
     <p id="modalPrice" class="text-lg font-bold mb-4"></p>
@@ -346,8 +342,6 @@
 </div>
 
 <script src="../src/js/auth.js"></script>
-<script src="../src/js/cart.js"></script>
-<script src="../src/js/product.js"></script>
 
 </body>
 </html>

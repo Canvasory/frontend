@@ -2,11 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* style.css */
-.text-outline {
-  -webkit-text-stroke: 4px #FF7000;
-}
-
 .bg-custom {
   background-image: url('../images/bg_homepage1.png');
   background-size: cover;
@@ -14,6 +9,7 @@
   background-repeat: no-repeat;
 }
 
+/* page profile */
 .active-tab {
   background-color: white;
   color: #10A19D;

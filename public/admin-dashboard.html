@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin | Collexta</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body class="bg-gray-100 font-mono">
+
+  <header class="bg-black text-white px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Dashboard Admin</h1>
+    <button id="logoutBtn" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">Logout</button>
+  </header>
+  
+  <main class="p-6 space-y-6">
+    <section class="bg-white p-6 rounded shadow mb-6">
+      <h3 class="text-lg font-bold mb-4">Statistik</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div><p class="text-2xl font-bold" id="totalUsers">0</p><p>User</p></div>
+        <div><p class="text-2xl font-bold" id="totalDesigns">0</p><p>Desain</p></div>
+        <div><p class="text-2xl font-bold" id="totalOrders">0</p><p>Pesanan</p></div>
+        <div><p class="text-2xl font-bold" id="totalPaid">0</p><p>Terbayar</p></div>
+      </div>
+    </section>
+
+    <section class="bg-white p-6 rounded shadow border border-black">
+      <h2 class="text-lg font-bold mb-4">Daftar User</h2>
+      <div id="userList" class="overflow-x-auto">
+        <!-- Tabel user akan muncul di sini -->
+      </div>
+    </section>
+
+    <section class="bg-white p-6 rounded shadow">
+      <h3 class="text-lg font-bold mb-4">Pesanan</h3>
+      <div id="adminOrders" class="space-y-4"></div>
+    </section>
+
+    <div class="flex justify-end">
+      <button onclick="openModal()" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Tambah Desain</button>
+    </div>
+    <section class="bg-white p-6 rounded shadow">
+      <h3 class="text-lg font-bold mb-4">Desain Terdaftar</h3>
+      <div id="adminDesigns" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    </section>
+  </main>
+
+  <!-- Modal Edit User -->
+  <div id="editUserModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <form id="editUserForm" class="bg-white p-6 rounded shadow w-[400px] space-y-4">
+      <h2 class="text-lg font-bold">Edit User</h2>
+      <input type="hidden" id="editUserId" />
+      <input type="text" id="editUsername" placeholder="Username" class="w-full border px-3 py-2" required />
+      <input type="email" id="editEmail" placeholder="Email" class="w-full border px-3 py-2" required />
+      <select id="editRole" class="w-full border px-3 py-2" required>
+        <option value="user">User</option>
+        <option value="designer">Designer</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div class="flex justify-between">
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
+        <button type="button" onclick="closeEditUserModal()" class="text-red-500">Batal</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal Tambah Desain -->
+  <div id="addDesignModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <form id="adminAddDesignForm" class="bg-white p-6 rounded shadow-lg w-[400px] space-y-4">
+      <h2 class="text-lg font-bold">Tambah Desain</h2>
+      <input type="text" id="designTitle" placeholder="Judul" class="w-full border px-3 py-2" required />
+      <textarea id="designDescription" placeholder="Deskripsi" class="w-full border px-3 py-2" required></textarea>
+      <input type="number" id="designPrice" placeholder="Harga" class="w-full border px-3 py-2" required />
+      <select id="designCategory" class="w-full border px-3 py-2" required>
+        <option value="">Pilih Kategori</option>
+        <option value="Vector">Vector</option>
+        <option value="Bitmap">Bitmap</option>
+        <option value="Abstract Design">Abstract Design</option>
+        <option value="Street Art">Street Art</option>
+      </select>
+      <select id="designDesigner" class="w-full border px-3 py-2" required>
+        <!-- Diisi via JS: semua user dengan role "designer" -->
+      </select>
+      <input type="file" id="designImage" accept="image/*" class="w-full" required />
+      <button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-600">Simpan</button>
+      <button type="button" onclick="closeModal()" class="text-red-500 mx-4 hover:underline">Batal</button>
+    </form>
+  </div>
+
+  <!-- Modal Edit Desain -->
+<div id="editDesignModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <form id="editDesignForm" class="bg-white p-6 rounded shadow-lg w-[400px] space-y-4">
+    <h2 class="text-lg font-bold">Edit Desain</h2>
+    <input type="hidden" id="editDesignId" />
+    <input type="text" id="editDesignTitle" placeholder="Judul" class="w-full border px-3 py-2" required />
+    <textarea id="editDesignDescription" placeholder="Deskripsi" class="w-full border px-3 py-2" required></textarea>
+    <input type="number" id="editDesignPrice" placeholder="Harga" class="w-full border px-3 py-2" required />
+    <select id="editDesignCategory" class="w-full border px-3 py-2" required>
+      <option value="">Pilih Kategori</option>
+      <option value="Vector">Vector</option>
+      <option value="Bitmap">Bitmap</option>
+      <option value="Abstract Design">Abstract Design</option>
+      <option value="Street Art">Street Art</option>
+    </select>
+    <input type="file" id="editDesignImage" accept="image/*" class="w-full" />
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+    <button type="button" onclick="closeEditModal()" class="text-red-500">Batal</button>
+  </form>
+</div>
+
+  <script src="/src/js/admin-dashboard.js"></script>
+</body>
+</html>
