@@ -1,4 +1,4 @@
-const API_URL = 'https://collexta-production.up.railway.app';
+const API_URL = 'https://6fbe7305edc7.ngrok-free.app';
 const user = JSON.parse(localStorage.getItem('user'));
 const token = localStorage.getItem('token');
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
