@@ -101,7 +101,7 @@ async function loadCatalog(category = "") {
           <p class="text-sm text-gray-600">${item.category}</p>
           <div class="flex justify-between items-center mt-1 text-xs">
             <span class="font-mono text-gray-700">${item.expand?.designer?.username || '<span class="italic text-gray-400">Tidak dikenal</span>'}</span>
-            <img class="w-[28px] h-[28px]" src="../images/profile.png" alt="profile">
+            <img class="w-[28px] h-[28px]" src="/assets/images/profile.png" alt="profile">
           </div>
           <div class="mt-2 flex justify-between items-center">
             <span class="text-xs font-bold font-mono">Price<br><span class="text-black text-base">IDR ${item.price}K</span></span>

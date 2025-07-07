@@ -1,15 +1,15 @@
-const API_URL = 'https://canvasory-pocketbase.up.railway.app';
+const API_URL = 'http://localhost:8090';
 const token = localStorage.getItem('token');
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
 if (!currentUser || currentUser.role !== "admin") {
   alert("Hanya admin yang dapat mengakses halaman ini.");
-  window.location.href = "/html/index.html";
+  window.location.href = "/public/index.html";
 }
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "/html/admin-login.html";
+  window.location.href = "/public/admin-login.html";
 });
 
 document.addEventListener("DOMContentLoaded",() => {

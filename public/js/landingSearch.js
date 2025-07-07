@@ -69,7 +69,7 @@ function renderSearchResults(products, container) {
             <div class="flex items-center justify-between mt-1">
               <span class="text-xs bg-gray-200 px-2 py-[4px] rounded-full text-gray-700">${product.category}</span>
               <div class="flex items-center space-x-1">
-                <img class="w-[32px] h-[32px] rounded-full" src="../images/profile.png" alt="designer" />
+                <img class="w-[32px] h-[32px] rounded-full" src="/assets/images/profile.png" alt="designer" />
                 <span class="text-xs text-gray-700">${product.expand?.designer?.username || 'Unknown'}</span>
               </div>
             </div>
