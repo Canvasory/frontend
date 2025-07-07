@@ -1,4 +1,4 @@
-const API_URL = 'https://collexta-production.up.railway.app/';
+const API_URL = 'https://6fbe7305edc7.ngrok-free.app';
 
 // Ambil elemen utama
 const loginBtn = document.getElementById('loginBtn');
