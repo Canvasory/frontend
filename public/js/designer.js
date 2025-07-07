@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.innerHTML = `
         <!-- Avatar Floating -->
         <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
-          <img src="../images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
+          <img src="/assets/images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
         </div>
 
         <!-- Info -->
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <a href="https://wa.me/${designer.phone || '6281234567890'}" target="_blank" class="text-white bg-purple-900 px-4 py-1 rounded hover:bg-purple-800 text-sm transition">
             Contact
           </a>
-          <a href="/html/portofolio.html?designerId=${designer.id}" class="text-purple-900 border border-purple-900 px-4 py-1 rounded hover:bg-purple-900 hover:text-white text-sm transition">
+          <a href="/public/portofolio.html?designerId=${designer.id}" class="text-purple-900 border border-purple-900 px-4 py-1 rounded hover:bg-purple-900 hover:text-white text-sm transition">
             Portofolio
           </a>
         </div>

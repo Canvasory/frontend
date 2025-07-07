@@ -7,7 +7,7 @@ let allDesigns = [];
 // Validasi login
 if (!designer || !token) {
   alert("Silakan login terlebih dahulu.");
-  window.location.href = '/html/index.html';
+  window.location.href = '/public/index.html';
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

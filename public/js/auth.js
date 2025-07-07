@@ -1,4 +1,4 @@
-const API_URL = 'https://canvasory-pocketbase.up.railway.app';
+const API_URL = 'http://localhost:8090';
 
 // Ambil elemen utama
 const loginBtn = document.getElementById('loginBtn');
@@ -48,9 +48,9 @@ document.getElementById('loginForm')?.addEventListener('submit', async e => {
 
       const role = data.record.role;
       if (role === 'designer') {
-        window.location.href = '/html/portofolio.html';
+        window.location.href = '/public/portofolio.html';
       } else if (role === 'admin') {
-        window.location.href = '/html/admin-dashboard.html';
+        window.location.href = '/public/admin-dashboard.html';
       } else {
         location.reload();
       }
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (confirmLogout) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/html/index.html';
+      window.location.href = '/public/index.html';
     }
   });
 
@@ -116,17 +116,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const profileLink = document.createElement('a');
     profileLink.className = 'px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold';
     profileLink.innerHTML = `
-      <img class="w-[25px] h-[25px] mr-2" src="../images/profile.png" alt="profile">
+      <img class="w-[25px] h-[25px] mr-2" src="/assets/images/profile.png" alt="profile">
       ${displayName}
     `;
 
     // Arahkan ke halaman sesuai role
     if (currentUser.role === 'designer') {
-      profileLink.href = '/html/portofolio.html';
+      profileLink.href = '/public/portofolio.html';
     } else if (currentUser.role === 'admin') {
-      profileLink.href = '/html/admin-dashboard.html';
+      profileLink.href = '/public/admin-dashboard.html';
     } else {
-      profileLink.href = '/html/profile.html';
+      profileLink.href = '/public/profile.html';
     }
 
     loginBtn?.replaceWith(profileLink);
