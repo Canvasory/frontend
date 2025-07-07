@@ -1,1 +1,1 @@
-export const API_URL = 'https://api.collexta.com';
+export const API_URL = 'https://collexta-production.up.railway.app/';

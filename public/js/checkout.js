@@ -6,7 +6,7 @@ const cart = JSON.parse(localStorage.getItem('cart')) || [];
 // Redirect jika belum login
 if (!user || !token) {
   alert("Silakan login terlebih dahulu.");
-  window.location.href = "/public/index.html";
+  window.location.href = "../html/index.html";
 }
 
 // Hitung total
@@ -55,7 +55,7 @@ document.getElementById("checkoutForm").addEventListener("submit", async (e) => 
     if (res.ok) {
       alert("Checkout berhasil! Pesanan Anda sedang diproses.");
       localStorage.removeItem("cart");
-      window.location.href = "/public/profile.html";
+      window.location.href = "../html/profile.html";
     } else {
       const err = await res.json();
       alert("Checkout gagal:\n" + (err.message || "Terjadi kesalahan."));

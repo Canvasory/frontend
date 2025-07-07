@@ -4,12 +4,12 @@ const currentUser = JSON.parse(localStorage.getItem('user'));
 
 if (!currentUser || currentUser.role !== "admin") {
   alert("Hanya admin yang dapat mengakses halaman ini.");
-  window.location.href = "/public/index.html";
+  window.location.href = "../html/index.html";
 }
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "/public/admin-login.html";
+  window.location.href = "../html/admin-login.html";
 });
 
 document.addEventListener("DOMContentLoaded",() => {

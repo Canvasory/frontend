@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8090';
+const API_URL = 'https://collexta-production.up.railway.app/';
 
 // Ambil elemen utama
 const loginBtn = document.getElementById('loginBtn');
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (confirmLogout) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/public/index.html';
+      window.location.href = '../html/index.html';
     }
   });
 
@@ -116,17 +116,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const profileLink = document.createElement('a');
     profileLink.className = 'px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold';
     profileLink.innerHTML = `
-      <img class="w-[25px] h-[25px] mr-2" src="/assets/images/profile.png" alt="profile">
+      <img class="w-[25px] h-[25px] mr-2" src="../images/profile.png" alt="profile">
       ${displayName}
     `;
 
     // Arahkan ke halaman sesuai role
     if (currentUser.role === 'designer') {
-      profileLink.href = '/public/portofolio.html';
+      profileLink.href = '../html/portofolio.html';
     } else if (currentUser.role === 'admin') {
-      profileLink.href = '/public/admin-dashboard.html';
+      profileLink.href = '../html/admin-dashboard.html';
     } else {
-      profileLink.href = '/public/profile.html';
+      profileLink.href = '../html/profile.html';
     }
 
     loginBtn?.replaceWith(profileLink);

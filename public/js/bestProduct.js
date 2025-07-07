@@ -64,7 +64,7 @@ async function loadBestProduct() {
                 <div class="flex items-center justify-between mt-1">
                     <span class="text-xs bg-gray-200 px-2 py-[4px] rounded-full text-gray-700">${product.category}</span>
                     <div class="flex items-center space-x-1">
-                    <img class="w-[32px] h-[32px] rounded-full" src="/assets/images/profile.png" alt="designer" />
+                    <img class="w-[32px] h-[32px] rounded-full" src="../images/profile.png" alt="designer" />
                     <span class="text-xs text-gray-700">${product.expand?.designer?.username || 'Unknown'}</span>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ async function loadBestProduct() {
                     <p class="text-sm text-gray-500">Price</p>
                     <span class="text-[2rem] font-bold text-black">IDR ${product.price}K</span>
                 </div>
-                <a href="/public/catalog.html" 
+                <a href="../html/catalog.html" 
                     class="viewBtn bg-purple-800 hover:bg-purple-900 text-white text-sm font-bold px-4 py-1.5 rounded-full transition"
                     data-category="${product.category}">
                     View
