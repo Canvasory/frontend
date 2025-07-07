@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8090';
+const API_URL = 'https://collexta-production.up.railway.app';
 const token = localStorage.getItem('token');
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
