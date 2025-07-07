@@ -1,1 +1,1 @@
-export const API_URL = 'https://collexta-production.up.railway.app/';
+export const API_URL = 'https://6fbe7305edc7.ngrok-free.app';
