@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.innerHTML = `
         <!-- Avatar Floating -->
         <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
-          <img src="/assets/images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
+          <img src="../images/profile.png" alt="Designer Photo" class="w-20 h-20 rounded-full border-4 border-white shadow-lg" />
         </div>
 
         <!-- Info -->

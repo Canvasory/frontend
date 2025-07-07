@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio Haitsam | Collexta</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body class="font-mono bg-gray-100">
   <div class="relative">
-    <div class="h-[200px] w-full bg-cover bg-[center_-80px] bg-no-repeat" style="background-image: url('/assets/images/bg-designer2.jpg');"></div>
+    <div class="h-[200px] w-full bg-cover bg-[center_-80px] bg-no-repeat" style="background-image: url('../images/bg-designer2.jpg');"></div>
     <div class="absolute top-4 right-4 flex gap-2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20">
-      <a href="/public/catalog.html" class="bg-white text-black px-4 py-1.5 rounded hover:bg-gray-200 text-sm font-semibold transition">Lihat Catalog</a>
-      <a href="/public/designer.html" class="bg-red-600 text-white px-4 py-1.5 rounded hover:bg-red-700 text-sm font-semibold transition">Kembali</a>
+      <a href="../html/catalog.html" class="bg-white text-black px-4 py-1.5 rounded hover:bg-gray-200 text-sm font-semibold transition">Lihat Catalog</a>
+      <a href="../html/designer.html" class="bg-red-600 text-white px-4 py-1.5 rounded hover:bg-red-700 text-sm font-semibold transition">Kembali</a>
     </div>
 
     <div class="-mt-[7rem] mx-auto bg-white/80 backdrop-blur-sm shadow-lg rounded-xl w-full max-w-4xl p-6 flex flex-col md:flex-row items-center md:items-start gap-5">
       <div class="w-[12rem] h-[10rem] rounded-full border-4 border-white overflow-hidden">
-        <img src="/assets/images/Kim.jpg" id="designerAvatar"
+        <img src="../images/Kim.jpg" id="designerAvatar"
         alt="Avatar"
         class="w-[10rem] h-[10rem] object-cover transition-transform duration-300 ease-in-out hover:scale-125">
       </div>
@@ -57,7 +57,7 @@
   </section>
 
   <script>
-    const API_URL = 'http://localhost:8090';
+    const API_URL = 'https://collexta-production.up.railway.app/';
     const designerId = '6e7ik7q7y4wn88w'; // Ganti dengan ID sebenarnya
 
     async function loadDesigner() {
