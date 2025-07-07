@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keranjang | Collexta</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="font-mono bg-gray-50">
+  <header class="p-4 bg-gray-300 text-bold border-2 border-black flex justify-between items-center">
+    <h1 class="text-xl font-bold">Keranjang Saya</h1>
+    <a href="catalog.html" class="text-sm underline hover:text-gray-600">← Kembali ke Katalog</a>
+  </header>
+
+  <main class="p-6 space-y-6">
+    <div id="cartItemsContainer" class="space-y-4"></div>
+    <div id="cartSummary" class="text-right text-lg font-bold"></div>
+    <div class="text-right">
+      <button id="checkoutBtn" class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded">Checkout</button>
+    </div>
+  </main>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

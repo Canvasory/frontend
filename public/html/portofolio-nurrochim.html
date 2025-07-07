@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Haitsam | Collexta</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="font-mono bg-gray-100">
+  <div class="relative">
+    <div class="h-[200px] w-full bg-cover bg-[center_-80px] bg-no-repeat" style="background-image: url('../images/bg-designer2.jpg');"></div>
+    <div class="absolute top-4 right-4 flex gap-2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20">
+      <a href="catalog.html" class="bg-white text-black px-4 py-1.5 rounded hover:bg-gray-200 text-sm font-semibold transition">Lihat Catalog</a>
+      <a href="designer.html" class="bg-red-600 text-white px-4 py-1.5 rounded hover:bg-red-700 text-sm font-semibold transition">Kembali</a>
+    </div>
+
+    <div class="-mt-[7rem] mx-auto bg-white/80 backdrop-blur-sm shadow-lg rounded-xl w-full max-w-4xl p-6 flex flex-col md:flex-row items-center md:items-start gap-5">
+      <div class="w-[12rem] h-[10rem] rounded-full border-4 border-white overflow-hidden">
+        <img src="../images/Kim.jpg" id="designerAvatar"
+        alt="Avatar"
+        class="w-[10rem] h-[10rem] object-cover transition-transform duration-300 ease-in-out hover:scale-125">
+      </div>
+      <div class="md:col-span-2 mt-16 md:mt-0 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>   
+            <h2 id="designerName" class="text-2xl font-bold">Haitsam</h2>
+            <p class="text-sm text-gray-600 mb-2">Product Designer</p>
+          </div>   
+          <div>
+            <p class="mt-2 text-sm text-gray-700" id="designerBio">Bio desainer akan dimuat dari database.</p>
+          </div>  
+        </div>
+        <div class="flex items-center gap-2 mb-4 mt-2">
+          <span class="text-lg font-bold">Rating:</span>
+          <span id="designerRating" class="text-blue-600 font-bold">-</span>
+          <div class="text-yellow-500 text-lg">★★★★★</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p><strong>Email:</strong> <span id="designerEmail">-</span></p>
+            <p><strong>Website:</strong> <a id="designerWebsite" class="text-blue-700 hover:underline" target="_blank">-</a></p>
+          </div>
+          <div>
+            <p><strong>Lokasi:</strong> <span id="designerLocation">-</span></p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+  <div class="h-10"></div>
+
+  <section class="mx-auto max-w-5xl p-6 bg-white rounded shadow border border-black">
+    <h3 class="text-xl font-bold mb-4">Karya Terbaru</h3>
+    <div id="designList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </section>
+
+  <script>
+    const API_URL = 'http://localhost:8090';
+    const designerId = '6e7ik7q7y4wn88w'; // Ganti dengan ID sebenarnya
+
+    async function loadDesigner() {
+      try {
+        const res = await fetch(`${API_URL}/api/collections/users/records/${designerId}`);
+        const designer = await res.json();
+        document.getElementById('designerName').innerText = designer.username;
+        document.getElementById('designerBio').innerText = designer.bio || '-';
+        document.getElementById('designerEmail').innerText = designer.email || '-';
+        document.getElementById('designerWebsite').innerText = designer.website || 'https://collexta.com';
+        document.getElementById('designerLocation').innerText = designer.location || '-';
+        document.getElementById('designerRating').innerText = designer.rating || '8.8';
+        loadDesigns(designer.id);
+      } catch (err) {
+        console.error("Gagal memuat profil:", err);
+      }
+    }
+
+    async function loadDesigns(designerId) {
+      const container = document.getElementById('designList');
+      container.innerHTML = `<p>Memuat karya...</p>`;
+
+      try {
+        const res = await fetch(`${API_URL}/api/collections/designs/records?filter=(designer='${designerId}')`);
+        const data = await res.json();
+        container.innerHTML = '';
+
+        if (!data.items.length) {
+          container.innerHTML = '<p class="text-gray-500">Belum ada karya.</p>';
+          return;
+        }
+
+        data.items.forEach(design => {
+          const card = document.createElement('div');
+          card.className = "border border-black rounded p-3 bg-white shadow";
+          card.innerHTML = `
+            <img src="${API_URL}/api/files/designs/${design.id}/${design.image}" class="w-full h-40 object-contain mb-2 rounded" />
+            <h3 class="font-bold text-lg">${design.title}</h3>
+            <p class="text-sm text-gray-600">${design.category}</p>
+            <p class="text-sm font-mono">IDR ${design.price}K</p>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Gagal memuat karya:", err);
+        container.innerHTML = '<p class="text-red-500">Terjadi kesalahan saat memuat karya.</p>';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadDesigner();
+    });
+  </script>
+</body>
+</html>

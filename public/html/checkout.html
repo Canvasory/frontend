@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Collexta</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="bg-gray-100 font-mono">
+
+  <header class="bg-black text-white px-6 py-4">
+    <h1 class="text-xl font-bold">Checkout</h1>
+  </header>
+
+  <main class="p-6 max-w-xl mx-auto space-y-6">
+    <div class="bg-white p-6 rounded shadow">
+      <h2 class="text-lg font-bold mb-4">Formulir Checkout</h2>
+
+      <form id="checkoutForm" class="space-y-4">
+        <input type="text" id="fullName" placeholder="Nama Lengkap" class="w-full border px-3 py-2" required />
+        <input type="email" id="email" placeholder="Email" class="w-full border px-3 py-2" required />
+        <textarea id="address" placeholder="Alamat Lengkap" class="w-full border px-3 py-2" required></textarea>
+
+        <div>
+          <label class="block mb-1">Metode Pembayaran:</label>
+          <select id="paymentMethod" class="w-full border px-3 py-2" required>
+            <option value="">Pilih Bank</option>
+            <option value="bri">BRI - 123456789 a.n. Collexta</option>
+            <option value="bca">BCA - 987654321 a.n. Collexta</option>
+          </select>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" id="customCheckbox" />
+          <label for="customCheckbox">Desain custom</label>
+        </div>
+
+        <div>
+          <label for="buktiTransfer" class="block mb-1">Upload Bukti Transfer:</label>
+          <input type="file" id="buktiTransfer" accept="image/*" class="w-full border p-2" required />
+        </div>
+
+        <div>
+          <p class="font-bold">Total: <span id="totalAmount" class="text-lg text-black">Rp 0</span></p>
+        </div>
+
+        <button type="submit" class="bg-black text-white px-4 py-2 rounded">Kirim Pesanan</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>

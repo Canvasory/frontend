@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collexta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet" />
+
+</head>
+<body class="font-mono bg-gray-50 text-gray-800">
+
+<!-- Navbar Section -->
+<header class="bg-gray-300 border-2 border-black">
+  <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 w-full">
+
+    <!-- Kiri: Logo dan Menu -->
+    <div class="flex items-center space-x-6 p-4">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="../images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-2xl font-bold">Collexta</h1>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="space-x-4">
+        <a href="index.html" class="no-underline text-black hover:font-bold">Home</a>
+        <a href="catalog.html" class="no-underline text-black hover:font-bold">Catalog</a>
+        <a href="designer.html" class="no-underline text-black hover:font-bold">Designer</a>
+        <a href="aboutus.html" class="no-underline text-black hover:font-bold">About Us</a>
+      </nav>
+    </div>
+
+    <!-- Kanan: Login, Signup, Cart -->
+    <div class="flex items-center divide-x divide-black">
+      <!-- Tombol Login -->
+      <a href="#" id="loginBtn" class="px-6 py-[26px] no-underline text-black text-center flex items-center hover:font-bold">
+        <img class="w-[25px] h-[25px] mr-2" src="../images/profile.png" alt="profile">
+        Login
+      </a>
+
+      <!-- Tombol Signup -->
+      <a href="#" id="signupBtn" class="px-5 py-[26px] no-underline text-black text-center flex items-center hover:bg-gray-400">
+        Sign Up
+      </a>
+
+      <!-- Tombol Cart -->
+      <a href="cart.html" class="px-5 py-[26px] no-underline text-black text-center flex items-center hover:bg-gray-400">
+        <img class="w-[24px] h-[24px] mr-2" src="../images/cart.png" alt="Cart">
+        Cart
+        <!-- Badge count -->
+        <span id="cartCount" class="absolute top-4 right-3 bg-red-600 text-white text-xs font-bold px-2 py-[2px] rounded-full hidden">0</span>
+      </a>
+    </div>
+
+  </div>
+</header>
+<!-- Navbar Section -->
+
+
+<!-- Search Section -->
+<section class="bg-[#10A19D] text-center py-[8rem]">
+  <h2 class="font-sans text-8xl font-bold mb-4 scale-y-[0.75]">FIND YOUR <span class="text-white">DESIGN</span> <br> <span class="text-[#FFBF00]">IDEAS</span> HERE.</h2>
+  
+  <form class="flex items-center max-w-sm mx-auto" id="searchForm">   
+      <div class="relative w-full pr-2">
+        <input type="text" id="simple-search" class="bg-[#10A19D] border border-white text-white text-sm rounded-lg placeholder:text-white focus:ring-white focus:border-white block w-full ps-10 p-2 h-full" 
+        placeholder="Search by categories or designer" 
+        required />
+      </div>
+      <button 
+        type="submit" 
+        class="p-1 px-4 ms-2 text-sm font-medium text-white bg-purple-900 rounded-lg border border-white hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 h-full">
+          Search
+      </button>
+  </form>
+
+  <p class="pt-2 text-sm text-white text-left max-w-sm mx-auto space-x-1">
+    <a href="#" class="category-link no-underline text-white hover:!text-black" data-category="popular">Most Popular</a> 
+    <a href="#" class="category-link no-underline text-white hover:!text-black" data-category="Vector">Vector</a> 
+    <a href="#" class="category-link no-underline text-white hover:!text-black" data-category="Street Art">Bitmap</a>
+  </p> 
+</section>
+<!-- Search Section -->
+
+<!-- Card Section -->
+  <section class="min-h-[10rem] bg-gray-300 flex justify-center flex-wrap gap-8 py-[8rem] w-full" id="bestProductContainer">
+    <!-- Diisi dinamis via JS -->
+  </section>
+
+  <!-- Katalog Container (untuk search result jika dipisah dari best product) -->
+  <section id="catalogContainer" class="hidden bg-gray-300 py-[8rem] px-6 w-full flex justify-center flex-wrap gap-8">
+    <!-- Diisi dari landingSearch.js jika ingin tampil terpisah -->
+  </section>
+<!-- Card Section -->
+
+<!-- Feed Back -->
+
+  <section>
+    <div class="bg-[#FFBF00] flex flex-col items-center justify-center space-y-0 py-[8rem]">
+    <h1 class="text-[150px] font-akiraexpanded font-extrabold text-[#FF7000] leading-none text-center">
+      FEED
+    </h1>
+  <!-- Card -->
+<!-- Card -->
+<div class="flex flex-wrap justify-center gap-6 mt-[-120px] z-10 px-4">
+
+  <!-- Card 1 -->
+  <div class="relative bg-white border border-black p-4 w-[400px] max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] h-[200px] rounded-sm">
+    <div class="absolute right-[-12px] left-2 h-[95%] bg-black z-[-1]"></div>
+
+    <div class="flex justify-between items-right mb-2">
+      <div class="flex space-x-1 text-yellow-400 text-xl">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+      </div>
+      <div class="flex items-right space-x-2">
+        <span class="text-sm font-bold">Teguh Idris</span>
+        <img class="w-[28px] h-[28px]" src="../images/profile.png" alt="profile">
+      </div>
+    </div>
+    <p class="text-[12px] font-bold leading-relaxed">
+      Permintaan saya diselesaikan dengan sangat cepat dan hasilnya jauh melebihi ekspektasi. Gaya desainnya sangat khas dan kreatif!
+    </p>
+    <div class="mt-1 text-2xl">🎨</div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="relative bg-white border border-black p-4 w-[400px] max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] h-[200px] rounded-sm">
+    <div class="absolute right-[-12px] left-2 h-[95%] bg-black z-[-1]"></div>
+
+    <div class="flex justify-between items-right mb-2">
+      <div class="flex space-x-1 text-yellow-400 text-xl">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <div class="flex items-right space-x-2">
+        <span class="text-sm font-bold">Putri Wulandari</span>
+        <img class="w-[28px] h-[28px]" src="../images/profile.png" alt="profile">
+      </div>
+    </div>
+    <p class="text-[12px] font-bold leading-relaxed">
+      Sangat komunikatif dan profesional. Revisi dilakukan sesuai permintaan dan hasil akhirnya super clean. Suka banget!
+    </p>
+    <div class="mt-1 text-2xl">❤️</div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="relative bg-white border border-black p-4 w-[400px] max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] h-[200px] rounded-sm">
+    <div class="absolute right-[-12px] left-2 h-[95%] bg-black z-[-1]"></div>
+
+    <div class="flex justify-between items-right mb-2">
+      <div class="flex space-x-1 text-yellow-400 text-xl">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <div class="flex items-right space-x-2">
+        <span class="text-sm font-bold">Bambang Saputra</span>
+        <img class="w-[28px] h-[28px]" src="../images/profile.png" alt="profile">
+      </div>
+    </div>
+    <p class="text-[12px] font-bold leading-relaxed">
+      Desainnya sangat futuristik dan cocok dengan tema startup kami. Bestt pokoknya beli design disini..
+    </p>
+    <div class="mt-1 text-2xl">👍</div>
+  </div>
+
+</div>
+<!-- Card -->
+
+  <!-- Card -->
+
+    <h1 class="text-[150px] font-akiraexpanded font-extrabold text-[#FF7000] leading-none text-center">
+      BACK</h1>
+  </div>
+  </section>
+<!-- Feed Back -->
+
+<!-- Footer -->
+<footer class="bg-[#540375] text-white px-8 py-6">
+  <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 w-full">
+    <!-- Left: Logo + Canvasory + Deskripsi -->
+    <div class="flex flex-col items-start">
+      <div class="flex items-center gap-2">
+        <img src="../images/logocanvasorynew.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-lg font-bold tracking-wide">Collexta</h1>
+      </div>
+      <p class="text-sm mt-2 text-gray-200 leading-relaxed">
+        Your design begins with us.<br>
+        We shape your vision into reality.<br>
+        Together, we bring ideas to life.
+      </p>
+    </div>
+
+    <!-- Right: Support + Icons -->
+    <div class="flex items-center justify-center gap-4 m-5">
+      <!-- Teks Support dibungkus dengan <a> agar bisa diklik -->
+      <a href="#" class="text-white text-xl mb-2 hover:opacity-80 transition">Support</a>
+
+      <!-- Ikon-ikon -->
+      <div class="flex gap-4">
+        <a href="#" aria-label="Email">
+          <img src="../images/mail.png" alt="Email" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <img src="../images/whatsapp.png" alt="WhatsApp" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="../images/instagram.png" alt="Instagram" class="w-8 h-8 hover:opacity-80 transition" />
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+<!-- Footer -->
+
+<!-- Modal Login/Signup -->
+  <!-- Login Modal -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white w-80 p-6 rounded shadow-xl border-2 border-black">
+      <h2 class="text-xl font-bold mb-4">Login</h2>
+      <form id="loginForm" class="space-y-4">
+        <input type="email" id="loginEmail" placeholder="Email" required class="w-full border p-2" />
+        <input type="password" id="loginPassword" placeholder="Password" required class="w-full border p-2" />
+        <button type="submit" class="w-full bg-purple-900 text-white py-2 rounded hover:bg-purple-800">Login</button>
+      </form>
+      <button onclick="closeModal('loginModal')" class="mt-4 text-sm text-gray-500 hover:text-black">Close</button>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white w-80 p-6 rounded shadow-xl border-2 border-black">
+      <h2 class="text-xl font-bold mb-4">Sign Up</h2>
+      <form id="signupForm" class="space-y-4">
+        <input type="email" id="signupEmail" placeholder="Email" required class="w-full border p-2" />
+        <input type="password" id="signupPassword" placeholder="Password" required class="w-full border p-2" />
+        <button type="submit" class="w-full bg-purple-900 text-white py-2 rounded hover:bg-purple-800">Sign Up</button>
+      </form>
+      <button onclick="closeModal('signupModal')" class="mt-4 text-sm text-gray-500 hover:text-black">Close</button>
+    </div>
+  </div>
+<!-- Modal Login/Signup -->
+
+<script src="../js/auth.js"></script>
+<script src="../js/landingSearch.js"></script>
+<script src="../js/bestProduct.js"></script>
+<script src="../js/product.js"></script>
+
+</body>
+</html>
